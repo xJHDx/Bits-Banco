@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/")
-public class ApiController {
+@RequestMapping("/movimiento/")
+public class ApiMovimiento {
 
     @Value("${spring.application.version}")
     private String version;
@@ -18,5 +18,9 @@ public class ApiController {
     public ResponseEntity<String> version() {
         return new ResponseEntity(version, HttpStatus.OK);
     }
+
+
+    // registrar movimiento al cliente con respectiva cuenta,
+    // el valor de registro no debe superar el saldo total. 
 
 }
