@@ -17,6 +17,9 @@ public class CuentaServices {
         return cuentaRepository.findAll();
     }
 
+    public CuentaEntity nuevaCuenta(CuentaEntity cuenta){
+        return cuentaRepository.save(cuenta);
+    }
 
 
 }

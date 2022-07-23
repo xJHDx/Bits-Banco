@@ -11,16 +11,18 @@ import java.util.List;
 public class CuentaEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_cuenta")
     private Long idCuenta;
+
+    @Column(name = "id_cliente")
+    private long cliente;
+
     private long numeroCuenta;
     private long saldoCuenta;
 
-
-
     @OneToMany(targetEntity = MovimientoEntity.class)
-    @JoinColumn(name="id_movimiento")
+    @JoinColumn(name="id_cuenta")
     private List<MovimientoEntity> movimientos;
 
 

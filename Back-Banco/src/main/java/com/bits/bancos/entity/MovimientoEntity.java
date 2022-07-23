@@ -11,9 +11,12 @@ import java.util.Date;
 @Table(name = "movimiento")
 public class MovimientoEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_movimiento")
     private Long idMovimiento;
+
+    @Column(name = "id_cuenta")
+    private long cuenta;
 
     private String tipoMovimiento;
     private Date fechaMovimiento;

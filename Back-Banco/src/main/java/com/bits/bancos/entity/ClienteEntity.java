@@ -14,18 +14,12 @@ public class ClienteEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_cliente")
     private Long idCliente;
-
-    @Column(name = "nombre_cliente")
     private String nombreCliente;
-
-    @Column(name = "direccion_cliente")
     private String direccionCliente;
-
-    @Column(name = "telefono_cliente")
     private long telefonoCliente;
 
     @OneToMany(targetEntity = CuentaEntity.class)
-    @JoinColumn(name="id_cuenta")
+    @JoinColumn(name="id_cliente")
     private List<CuentaEntity> cuentas;
 
 }
