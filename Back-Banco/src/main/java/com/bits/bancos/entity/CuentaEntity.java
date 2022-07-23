@@ -8,16 +8,17 @@ import javax.persistence.*;
 @Entity
 @Table(name = "cuenta")
 public class CuentaEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_cuenta", nullable = false)
-    private Long id_cuenta;
+    @Column(name = "id_cuenta")
+    private Long idCuenta;
 
     @ManyToOne(targetEntity = ClienteEntity.class)
-    @JoinColumn(name="id_cliente")
-    private Long id_cliente;
+    @JoinColumn(name="cliente_ibfk")
+    private ClienteEntity clienteIbfk;
 
-    private Integer numero_cuenta;
-    private Integer saldo_cuenta;
+    private Integer numeroCuenta;
+    private Integer saldoCuenta;
 
 }
