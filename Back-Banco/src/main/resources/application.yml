@@ -7,9 +7,11 @@ spring:
     name: bits_Banco
     version: develop
   datasource:
-    url: jdbc:h2:mem:mydb
-    username: sa
-    password:
-    driverClassName: org.h2.Driver
+    url: jdbc:mariadb://192.168.1.56:33066/dbBitsBancario
+    username: root
+    password: root
+    driver-class-name: org.mariadb.jdbc.Driver
     jpa:
-      spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+      hibernate:
+        dll: create-drop
+
