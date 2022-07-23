@@ -17,11 +17,9 @@ public class ClienteServices {
         return clienteRepository.findAll();
     }
 
-    public ClienteEntity nuevoCliente(){
-
-        System.out.println("continuar");
-
-        return null;
+    public ClienteEntity nuevoCliente(ClienteEntity clienteEntity){
+        ClienteEntity cliente = clienteRepository.save(clienteEntity);
+        return cliente;
     }
 
 }

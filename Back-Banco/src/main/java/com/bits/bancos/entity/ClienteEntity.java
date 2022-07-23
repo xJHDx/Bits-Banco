@@ -3,6 +3,7 @@ package com.bits.bancos.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -10,7 +11,7 @@ import javax.persistence.*;
 public class ClienteEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_cliente")
     private Long idCliente;
 
@@ -21,6 +22,10 @@ public class ClienteEntity {
     private String direccionCliente;
 
     @Column(name = "telefono_cliente")
-    private Integer telefonoCliente;
+    private long telefonoCliente;
+
+    @OneToMany(targetEntity = CuentaEntity.class)
+    @JoinColumn(name="id_cuenta")
+    private List<CuentaEntity> cuentas;
 
 }

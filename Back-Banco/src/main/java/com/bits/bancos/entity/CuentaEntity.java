@@ -3,6 +3,7 @@ package com.bits.bancos.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -13,12 +14,17 @@ public class CuentaEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_cuenta")
     private Long idCuenta;
+    private long numeroCuenta;
+    private long saldoCuenta;
 
-    @ManyToOne(targetEntity = ClienteEntity.class)
-    @JoinColumn(name="cliente_ibfk")
-    private ClienteEntity clienteIbfk;
 
-    private Integer numeroCuenta;
-    private Integer saldoCuenta;
+
+    @OneToMany(targetEntity = MovimientoEntity.class)
+    @JoinColumn(name="id_movimiento")
+    private List<MovimientoEntity> movimientos;
+
+
+
+
 
 }

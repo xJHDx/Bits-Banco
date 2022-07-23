@@ -11,15 +11,14 @@ import java.util.Date;
 @Table(name = "movimiento")
 public class MovimientoEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_movimiento", nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_movimiento")
     private Long idMovimiento;
-
-    @ManyToOne(targetEntity = CuentaEntity.class)
-    @JoinColumn(name="cuenta_ibfk")
-    private CuentaEntity cuentaIbfk;
 
     private String tipoMovimiento;
     private Date fechaMovimiento;
-    private Integer valorMovimiento;
+    private long valorMovimiento;
+
+
+
 }
