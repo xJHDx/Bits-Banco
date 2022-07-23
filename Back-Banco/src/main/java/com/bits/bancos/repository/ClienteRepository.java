@@ -9,4 +9,5 @@ public interface ClienteRepository extends JpaRepository<ClienteEntity, Long> {
 
     ClienteEntity findByNombreClienteOrTelefonoCliente(String nombreCliente, long telefonoCliente);
 
+    ClienteEntity findByIdCliente(long id);
 }

@@ -24,16 +24,18 @@ public class ApiCuentas {
         return new ResponseEntity(version, HttpStatus.OK);
     }
 
-
-    // creation
     @PostMapping("crear")
     public ResponseEntity<?> crearCliente(@RequestBody CuentaEntity cuentaEntity){
         return new ResponseEntity<>(cuentaServices.nuevaCuenta(cuentaEntity),HttpStatus.CREATED);
     }
+
     // modification
+
+
     // Consulta
     @GetMapping("todos")
     public ResponseEntity<?> consultaTodos(){return new ResponseEntity<>(cuentaServices.consultarCuentas(),HttpStatus.ACCEPTED); }
+
     // Elimination
 
 }
