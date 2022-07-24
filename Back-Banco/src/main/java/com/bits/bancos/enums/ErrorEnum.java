@@ -4,9 +4,11 @@ import org.springframework.http.HttpStatus;
 
 public enum ErrorEnum {
     TECHNICAL("001","Ocurri� un error inesperado",HttpStatus.INTERNAL_SERVER_ERROR),
-	ERROR_CLIENTE_EXISTE("002", "Nombre o Telefono ya se encuentra registrados",HttpStatus.NOT_ACCEPTABLE),
+	CLIENTE_EXISTE("002", "Nombre o Telefono ya se encuentra registrados",HttpStatus.NOT_ACCEPTABLE),
 	EXISTO_ELIMINAR("003", "El Registro a sido Eliminado Exitosamente",HttpStatus.OK),
-	ERROR_CLIENTE_NO_EXISTE("004", "El cliente no se encuentra en la base de datos",HttpStatus.OK)
+	ERROR_NO_EXISTE("004", "El registro no se encuentra en la base de datos",HttpStatus.NOT_ACCEPTABLE),
+	CUENTA_EXISTE("002", "La cuenta ya tiene un cliente asociado",HttpStatus.NOT_ACCEPTABLE),
+	ERROR_NO_EXISTE_CLIENTE("005", "el Cliente no se encuentra en la base de datos",HttpStatus.NOT_ACCEPTABLE)
 	;
 	
 	private String code;

@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/cuenta/")
+@RequestMapping("/cuenta")
 public class ApiCuentas {
 
     @Autowired
@@ -24,18 +24,31 @@ public class ApiCuentas {
         return new ResponseEntity(version, HttpStatus.OK);
     }
 
-    @PostMapping("crear")
-    public ResponseEntity<?> crearCliente(@RequestBody CuentaEntity cuentaEntity){
+    // Consulta
+    @GetMapping()
+    public ResponseEntity<?> consultar(@RequestParam String id){
+        if (id.equals("todos")) {
+            return new ResponseEntity<>(cuentaServices.consultarCuentas(),HttpStatus.ACCEPTED);
+        } else{
+            return new ResponseEntity<>(cuentaServices.consultaCuenta(Long.parseLong(id)),HttpStatus.ACCEPTED);
+        }
+    }
+
+    // creation
+    @PostMapping()
+    public ResponseEntity<?> crearCuenta(@RequestBody CuentaEntity cuentaEntity){
         return new ResponseEntity<>(cuentaServices.nuevaCuenta(cuentaEntity),HttpStatus.CREATED);
     }
 
     // modification
-
-
-    // Consulta
-    @GetMapping("todos")
-    public ResponseEntity<?> consultaTodos(){return new ResponseEntity<>(cuentaServices.consultarCuentas(),HttpStatus.ACCEPTED); }
+    @PutMapping()
+    public ResponseEntity<?> actualizarCuenta(@RequestBody CuentaEntity cuentaEntity){
+        return new ResponseEntity<>(cuentaServices.actualizarCuenta(cuentaEntity),HttpStatus.OK);
+    }
 
     // Elimination
-
+    @DeleteMapping()
+    public ResponseEntity<?> eliminarCuenta(@RequestParam long id){
+        return new ResponseEntity<>(cuentaServices.eliminarCuenta(id),HttpStatus.OK);
+    }
 }

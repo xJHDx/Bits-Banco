@@ -6,4 +6,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CuentaRepository extends JpaRepository<CuentaEntity, Long> {
+
+    CuentaEntity findByIdCuenta(long idCuenta);
+
+    CuentaEntity findByNumeroCuenta( long numeroCuenta);
+
 }

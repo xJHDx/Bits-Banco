@@ -21,10 +21,11 @@ public class ClienteServices {
     }
 
     public ClienteEntity consultaCliente(long id){
-        if(Objects.isNull(clienteRepository.findByIdCliente(id))){
-            throw new ApiException(ErrorEnum.ERROR_CLIENTE_NO_EXISTE,"No Existe Cliente");
+        ClienteEntity cliente = clienteRepository.findByIdCliente(id);
+        if(Objects.isNull(cliente)){
+            throw new ApiException(ErrorEnum.ERROR_NO_EXISTE_CLIENTE,"No Existe Cliente");
         }
-        return clienteRepository.findByIdCliente(id);
+        return cliente;
     }
 
     public ClienteEntity nuevoCliente(ClienteEntity clienteEntity){
@@ -32,7 +33,7 @@ public class ClienteServices {
         if(Objects.isNull(cliente)){
             return clienteRepository.save(clienteEntity);
         }else {
-            throw new ApiException(ErrorEnum.ERROR_CLIENTE_EXISTE,"Nombre o Telefono ya se encuentra registrados");
+            throw new ApiException(ErrorEnum.CLIENTE_EXISTE,"Nombre o Telefono ya se encuentra registrados");
         }
     }
 
@@ -44,13 +45,14 @@ public class ClienteServices {
             cliente.setTelefonoCliente(clienteEntity.getTelefonoCliente());
             return clienteRepository.save(cliente);
         }else {
-            throw new ApiException(ErrorEnum.ERROR_CLIENTE_NO_EXISTE,"No Existe Cliente");
+            throw new ApiException(ErrorEnum.ERROR_NO_EXISTE,"No Existe Cliente");
         }
     }
 
     public ApiException eliminarCliente(long id){
+        consultaCliente(id);
         clienteRepository.deleteById(id);
-        return new ApiException(ErrorEnum.EXISTO_ELIMINAR,"Se Elimino El Cliente");
+        throw new ApiException(ErrorEnum.EXISTO_ELIMINAR,"Se Elimino El Cliente");
     }
 
 }
