@@ -48,3 +48,5 @@ INSERT INTO dbBitsBancario.cuenta (id_cliente,numero_cuenta,saldo_cuenta)
 INSERT INTO dbBitsBancario.cuenta (id_cliente,numero_cuenta,saldo_cuenta)
 	VALUES (1,102,600000);
 
+INSERT INTO dbBitsBancario.movimiento (id_cuenta,tipo_movimiento,fecha_movimiento,valor_movimiento)
+	VALUES (1,'CREDITO','2022-07-23',0);

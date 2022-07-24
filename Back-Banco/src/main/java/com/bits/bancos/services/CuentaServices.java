@@ -39,18 +39,19 @@ public class CuentaServices {
         }else {
             throw new ApiException(ErrorEnum.CUENTA_EXISTE,"Ya esta Registrada la cuenta con el cliente");
         }
-
     }
 
     public CuentaEntity actualizarCuenta(CuentaEntity cuentaEntity){
         CuentaEntity cuenta = cuentaRepository.findByIdCuenta(cuentaEntity.getIdCuenta());
         if(!Objects.isNull(cuenta)){
+
             if(cuentaEntity.getNumeroCuenta() != cuenta.getNumeroCuenta()){
                 if(!Objects.isNull(cuentaRepository.findByNumeroCuenta(cuentaEntity.getNumeroCuenta()))){
                     throw new ApiException(ErrorEnum.CUENTA_EXISTE,"El Numero de Cuenta Existe Con otro Cliente");
+                }else {
+                    cuenta.setNumeroCuenta(cuentaEntity.getNumeroCuenta());
                 }
             }
-            cuenta.setNumeroCuenta(cuentaEntity.getNumeroCuenta());
             clienteServices.consultaCliente(cuentaEntity.getCliente());
             cuenta.setCliente(cuentaEntity.getCliente());
             cuenta.setSaldoCuenta(cuentaEntity.getSaldoCuenta());
@@ -65,6 +66,5 @@ public class CuentaServices {
         cuentaRepository.deleteById(idCuenta);
         throw new ApiException(ErrorEnum.EXISTO_ELIMINAR,"Se Elimino la Cuenta");
     }
-
 
 }

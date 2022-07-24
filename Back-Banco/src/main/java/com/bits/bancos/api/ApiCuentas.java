@@ -24,7 +24,6 @@ public class ApiCuentas {
         return new ResponseEntity(version, HttpStatus.OK);
     }
 
-    // Consulta
     @GetMapping()
     public ResponseEntity<?> consultar(@RequestParam String id){
         if (id.equals("todos")) {
@@ -34,19 +33,16 @@ public class ApiCuentas {
         }
     }
 
-    // creation
     @PostMapping()
     public ResponseEntity<?> crearCuenta(@RequestBody CuentaEntity cuentaEntity){
         return new ResponseEntity<>(cuentaServices.nuevaCuenta(cuentaEntity),HttpStatus.CREATED);
     }
 
-    // modification
     @PutMapping()
     public ResponseEntity<?> actualizarCuenta(@RequestBody CuentaEntity cuentaEntity){
         return new ResponseEntity<>(cuentaServices.actualizarCuenta(cuentaEntity),HttpStatus.OK);
     }
 
-    // Elimination
     @DeleteMapping()
     public ResponseEntity<?> eliminarCuenta(@RequestParam long id){
         return new ResponseEntity<>(cuentaServices.eliminarCuenta(id),HttpStatus.OK);

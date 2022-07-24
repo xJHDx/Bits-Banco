@@ -1,16 +1,16 @@
 package com.bits.bancos.api;
 
+import com.bits.bancos.entity.MovimientoEntity;
+import com.bits.bancos.models.RequestBodyReporte;
 import com.bits.bancos.services.MovimientoServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/movimiento/")
+@RequestMapping("/movimiento")
 public class ApiMovimiento {
 
 
@@ -25,11 +25,17 @@ public class ApiMovimiento {
         return new ResponseEntity(version, HttpStatus.OK);
     }
 
+    @GetMapping()
+    public ResponseEntity<?> reporteRangoFechasIdCliente(@RequestBody RequestBodyReporte requestBodyReporte){
+        return new ResponseEntity<>(movimientoServices.generarReporteRangoFechasIdCliente(requestBodyReporte),HttpStatus.OK);
+    }
 
-    @GetMapping("todos")
-    public ResponseEntity<?> consultaTodos(){return new ResponseEntity<>(movimientoServices.consultarMovimientos(),HttpStatus.ACCEPTED); }
-
+    @PostMapping()
+    public ResponseEntity<?> crearMovimiento(@RequestBody MovimientoEntity movimientoEntity){
+        return new ResponseEntity<>(movimientoServices.registrarMovimiento(movimientoEntity),HttpStatus.OK);
+    }
     // registrar movimiento al cliente con respectiva cuenta,
-    // el valor de registro no debe superar el saldo total.
+    // el valor de registro no debe superar el saldo total y no debe dar negativo el saldo total.
+    // Crear un Reporte con rango de fechas y Id de cliente.
 
 }
