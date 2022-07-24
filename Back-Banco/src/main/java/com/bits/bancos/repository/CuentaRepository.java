@@ -4,6 +4,8 @@ import com.bits.bancos.entity.CuentaEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface CuentaRepository extends JpaRepository<CuentaEntity, Long> {
 
@@ -11,4 +13,5 @@ public interface CuentaRepository extends JpaRepository<CuentaEntity, Long> {
 
     CuentaEntity findByNumeroCuenta( long numeroCuenta);
 
+    List<CuentaEntity> findByCliente(long idCliente);
 }

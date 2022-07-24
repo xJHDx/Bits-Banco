@@ -23,6 +23,14 @@ public class CuentaServices {
         return cuentaRepository.findAll();
     }
 
+    public List<CuentaEntity> consultaCuentaCliente(long idCliente){
+        List<CuentaEntity> cuenta = cuentaRepository.findByCliente(idCliente);
+        if (Objects.isNull(cuenta)) {
+            throw new ApiException(ErrorEnum.ERROR_NO_EXISTE_CLIENTE, "No Existe Cliente");
+        }
+        return cuenta;
+    }
+
     public CuentaEntity consultaCuenta(long id) {
         CuentaEntity cuenta = cuentaRepository.findByIdCuenta(id);
         if (Objects.isNull(cuenta)) {
