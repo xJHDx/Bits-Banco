@@ -46,7 +46,8 @@ public class MovimientoServices {
 
             cuentaAsociada.setNumeroCuenta(cuenta.getNumeroCuenta());
             cuentaAsociada.setSaldoCuenta(cuenta.getSaldoCuenta());
-
+            long sumaDebito = 0;
+            long sumaCredito = 0;
             List<ResponseBodyReporte.CuentasAsociadas.Movimientos> movimientos = new ArrayList<>();
             for(MovimientoEntity movimiento : movimientoRepository.BetweenDate(cuenta.getIdCuenta(),df.format(requestBodyReporte.getFechaInicio()),df.format(requestBodyReporte.getFechaFin())) ){
                 ResponseBodyReporte.CuentasAsociadas.Movimientos movimientoAsociado = new ResponseBodyReporte.CuentasAsociadas.Movimientos();
@@ -54,9 +55,15 @@ public class MovimientoServices {
                 movimientoAsociado.setFechaMovimiento(movimiento.getFechaMovimiento());
                 movimientoAsociado.setValorMovimiento(movimiento.getValorMovimiento());
                 movimientos.add(movimientoAsociado);
+                if(movimiento.getTipoMovimiento().equals("DEBITO")){
+                    sumaDebito = movimiento.getValorMovimiento() + sumaDebito;
+                }
+                if(movimiento.getTipoMovimiento().equals("CREDITO")){
+                    sumaCredito = movimiento.getValorMovimiento() + sumaCredito;
+                }
             }
-            cuentaAsociada.setTotalCreditos(1);
-            cuentaAsociada.setTotalDebitos(1);
+            cuentaAsociada.setTotalCreditos(sumaCredito);
+            cuentaAsociada.setTotalDebitos(sumaDebito);
             cuentaAsociada.setMovimientos(movimientos);
             cuentasAsociadas.add(cuentaAsociada);
         }

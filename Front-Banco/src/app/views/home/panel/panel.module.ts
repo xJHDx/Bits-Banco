@@ -6,17 +6,21 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import {CardModule} from 'primeng/card';
 import {ButtonModule} from 'primeng/button';
+import { ClientesComponent } from './clientes/clientes.component';
+import {DialogModule} from 'primeng/dialog';
 
 @NgModule({
   declarations: [
-    DashboardComponent
+    DashboardComponent,
+    ClientesComponent
   ],
   imports: [
     CommonModule,
     PanelRoutingModule,
     AutoCompleteModule,
     CardModule,
-    ButtonModule
+    ButtonModule,
+    DialogModule
   ]
 })
 export class PanelModule { }
