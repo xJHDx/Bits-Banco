@@ -10,7 +10,6 @@ import { ViewsRoutingModule } from './views-routing.module';
   imports: [
     CommonModule,
     ViewsRoutingModule
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  ]
 })
 export class ViewsModule { }
