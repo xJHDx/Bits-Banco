@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { PanelRoutingModule } from './panel-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import {AutoCompleteModule} from 'primeng/autocomplete';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   ],
   imports: [
     CommonModule,
-    PanelRoutingModule
+    PanelRoutingModule,
+    AutoCompleteModule
   ]
 })
 export class PanelModule { }
