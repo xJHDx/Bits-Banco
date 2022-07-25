@@ -1,4 +1,4 @@
-# bits-Banco
+# Bits-Banco
 ## Tecnologias.
 * 	[Maven](https://maven.apache.org/) - Dependency Management
 * 	[JDK](http://www.oracle.com/technetwork/java/javase/downloads/) - Java™ Platform, Standard Edition Development Kit 
