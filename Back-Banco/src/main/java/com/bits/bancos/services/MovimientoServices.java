@@ -36,7 +36,6 @@ public class MovimientoServices {
 
     public ResponseBodyReporte generarReporteRangoFechasIdCliente(RequestBodyReporte requestBodyReporte){
         DateFormat df = new SimpleDateFormat(pattern);
-        System.out.println(requestBodyReporte);
 
         ClienteEntity cliente = clienteServices.consultaCliente(requestBodyReporte.getIdCliente());
         List<CuentaEntity> cuentas = cuentaServices.consultaCuentaCliente(requestBodyReporte.getIdCliente());
@@ -67,8 +66,6 @@ public class MovimientoServices {
                 .telefonoCliente(cliente.getTelefonoCliente())
                 .cuentasAsociadas(cuentasAsociadas)
                 .build();
-        // realizar consulta de fechas con cliente,
-        // Mostrar cuentas asociadas con saldo
         // Total de Debito y Credito
     }
 
