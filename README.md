@@ -18,8 +18,8 @@
  - GET http://localhost:9090/bits/cliente/version
  - GET http://localhost:9090/bits/cliente
          
-      (Params) ?id = id_cliente
-      (Params) ?id = todos
+	      (Params) ?id = id_cliente
+	      (Params) ?id = todos
 
  - POST http://localhost:9090/bits/cliente
  
@@ -30,18 +30,18 @@
        }
                                
          
-  - PUT http://localhost:9090/bits/cliente
+- PUT http://localhost:9090/bits/cliente
   
        {
-             	"idCliente": "long",
-            	"nombreCliente":  "String", 
-            	"direccionCliente":  "String",
-              "telefonoCliente":  "long"
+          "idCliente": "long",
+          "nombreCliente":  "String", 
+          "direccionCliente":  "String",
+          "telefonoCliente":  "long"
        }
                           
  - DELETE http://localhost:9090/bits/cliente
  
-      (Params) ?id = id_cliente
+     	 (Params) ?id = id_cliente
 
 ---
 
@@ -55,15 +55,15 @@
 - POST http://localhost:9090/bits/cuenta
 
        {
-              "cliente":  "long", 
-              "numeroCuenta":  "long ",
-             "saldoCuenta":  "long"
+       	"cliente":  "long", 
+      	"numeroCuenta":  "long ",
+        "saldoCuenta":  "long"
        }
        
  - PUT http://localhost:9090/bits/cuenta
   
        {
-	            "idCuenta ": "long";
+	      "idCuenta ": "long";
               "cliente":  "long", 
               "numeroCuenta":  "long ",
               "saldoCuenta":  "long"
@@ -79,7 +79,7 @@
  - GET http://localhost:9090/bits/movimiento/version
  - GET http://localhost:9090/bits/movimiento
  
-	       {
+        {
              "idCliente":  "long", 
              "fechaInicio":  "dd/MM/yyyy",
              "fechaFin":  "dd/MM/yyyy"
