@@ -25,12 +25,12 @@ public class ApiMovimiento {
         return new ResponseEntity(version, HttpStatus.OK);
     }
 
-    @GetMapping()
+    @PostMapping("/reporte")
     public ResponseEntity<?> reporteRangoFechasIdCliente(@RequestBody RequestBodyReporte requestBodyReporte){
         return new ResponseEntity<>(movimientoServices.generarReporteRangoFechasIdCliente(requestBodyReporte),HttpStatus.OK);
     }
 
-    @PostMapping()
+    @PostMapping("/crear")
     public ResponseEntity<?> crearMovimiento(@RequestBody MovimientoEntity movimientoEntity){
         return new ResponseEntity<>(movimientoServices.registrarMovimiento(movimientoEntity),HttpStatus.OK);
     }

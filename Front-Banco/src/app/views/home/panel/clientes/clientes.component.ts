@@ -26,7 +26,7 @@ export class ClientesComponent implements OnInit,OnChanges {
   }
 
   ngOnInit(): void {
-    this.clienteServices.getClientes().subscribe(r=>{
+    this.clienteServices.getClientes("todos").subscribe(r=>{
       this.clientes = r;
       console.log(r);
     })
@@ -43,6 +43,7 @@ export class ClientesComponent implements OnInit,OnChanges {
   }
   
   crearCliente(){
+    this.selectedCliente = {}
     console.log("Crear Cliente");
     console.log(this.selectedCliente);
   }

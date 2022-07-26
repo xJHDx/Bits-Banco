@@ -11,9 +11,24 @@ export class ClienteServices {
 
     constructor(private http: HttpClient) { }
 
-    public getClientes():Observable<any>{
-        return this.http.get<any>(environment.apiBaseUrl + "/cliente?id=todos");
+    public getClientes(id:any):Observable<any>{
+        return this.http.get<any>(`${environment.apiBaseUrl}/cliente?id=${id}`);
     }
 
+    public postCrearCliente(json:any):Observable<any>{
+        const headers = { 'content-type': 'application/json'}  
+        const body = JSON.stringify(json);
+        return this.http.post<any>(environment.apiBaseUrl+"/cliente",body, {'headers': headers })
+    }
+
+    public putActualizarCliente(json:any):Observable<any>{
+        const headers = { 'content-type': 'application/json'}  
+        const body = JSON.stringify(json);
+        return this.http.put<any>(environment.apiBaseUrl+"/cliente",body, {'headers': headers })
+    }
+
+    public deleteCliente(id:Number):Observable<any>{
+        return this.http.delete<any>(`${environment.apiBaseUrl}/cliente?id=${id}`)
+    }
 
 }
