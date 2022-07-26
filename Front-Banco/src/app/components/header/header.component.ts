@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ChucknorrisServices } from 'src/app/services/chucknorrisServices';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  notas:string = "";
+
+  constructor(private chucknorrisServices:ChucknorrisServices) { }
 
   ngOnInit(): void {
+    this.chucknorrisServices.getChucknorris().subscribe(r=>{
+      this.notas = r.value;
+    })
   }
 
 }
