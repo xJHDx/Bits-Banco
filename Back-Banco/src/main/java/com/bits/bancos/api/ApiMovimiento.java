@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/movimiento")
+@CrossOrigin(origins = "*")
 public class ApiMovimiento {
-
 
     @Autowired
     MovimientoServices movimientoServices;
@@ -34,8 +34,5 @@ public class ApiMovimiento {
     public ResponseEntity<?> crearMovimiento(@RequestBody MovimientoEntity movimientoEntity){
         return new ResponseEntity<>(movimientoServices.registrarMovimiento(movimientoEntity),HttpStatus.OK);
     }
-    // registrar movimiento al cliente con respectiva cuenta,
-    // el valor de registro no debe superar el saldo total y no debe dar negativo el saldo total.
-    // Crear un Reporte con rango de fechas y Id de cliente.
 
 }

@@ -1,6 +1,6 @@
 package com.bits.bancos.api;
 
-import com.bits.bancos.entity.ClienteEntity;
+
 import com.bits.bancos.entity.CuentaEntity;
 import com.bits.bancos.services.CuentaServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/cuenta")
+@CrossOrigin(origins = "*")
 public class ApiCuentas {
 
     @Autowired

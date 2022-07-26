@@ -1,6 +1,5 @@
 package com.bits.bancos.api;
 
-
 import com.bits.bancos.entity.ClienteEntity;
 import com.bits.bancos.services.ClienteServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/cliente")
+@CrossOrigin(origins = "*")
 public class ApiClientes {
 
     @Autowired
