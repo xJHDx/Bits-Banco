@@ -54,20 +54,20 @@
 
 - POST http://localhost:9090/bits/cuenta
 
-       {
-       	"cliente":  "long", 
-      	"numeroCuenta":  "long ",
-        "saldoCuenta":  "long"
-       }
+		{
+		"cliente":  "long", 
+		"numeroCuenta":  "long ",
+		"saldoCuenta":  "long"
+		}
        
  - PUT http://localhost:9090/bits/cuenta
   
-       {
-	      "idCuenta ": "long";
-              "cliente":  "long", 
-              "numeroCuenta":  "long ",
-              "saldoCuenta":  "long"
-       }
+		{
+		"idCuenta ": "long";
+		"cliente":  "long", 
+		"numeroCuenta":  "long ",
+		"saldoCuenta":  "long"
+		}
        
 - DELETE http://localhost:9090/bits/cuenta
 
@@ -79,18 +79,18 @@
  - GET http://localhost:9090/bits/movimiento/version
  - GET http://localhost:9090/bits/movimiento
  
-        {
-             "idCliente":  "long", 
-             "fechaInicio":  "dd/MM/yyyy",
-             "fechaFin":  "dd/MM/yyyy"
-         }
+		{
+		"idCliente":  "long", 
+		"fechaInicio":  "dd/MM/yyyy",
+		"fechaFin":  "dd/MM/yyyy"
+		}
 
 - POST http://localhost:9090/bits/movimiento
 
-       {
-            "cuenta": "long", 
-            "tipoMovimiento":  "String ",
-            "fechaMovimiento":  " dd/MM/yyyy ",
-	          "valorMovimiento":  " long "
-       }
+		{
+		"cuenta": "long", 
+		"tipoMovimiento":  "String ",
+		"fechaMovimiento":  " dd/MM/yyyy ",
+		"valorMovimiento":  " long "
+		}
   
